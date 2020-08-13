@@ -1,0 +1,15 @@
+// Modal
+#startModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='startModalLabel' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Provide Info
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        p How would you like to provide information?
+        p If this is your first time here or if you have no file from the previous section, please choose "By Hand", otherwise use the "File Upload" option.
+      .modal-footer
+        button.btn.btn-primary.col-md-4(type='submit' data-toggle='modal' data-dismiss='modal' data-target='#fromScratchModal') By Hand
+          //a(href='#fromScratchModal' data-toggle='modal' data-dismiss='modal') By Hand
+        button.btn.btn-primary.col-md-4.ml-auto(type='submit') File Upload

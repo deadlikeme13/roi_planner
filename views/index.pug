@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  p &nbsp; 
-  p &nbsp;
   h1= title
-  p Welcome to #{title}
-  button(type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal") Start
+  p.centered Welcome to #{title}
+  button.col-2.offset-md-5.align-self-center(type="submit" class="btn btn-primary" data-toggle="modal" data-target="#startModal") Start
+  include includes/start
+  include includes/from_scratch

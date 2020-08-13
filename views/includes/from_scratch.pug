@@ -1,0 +1,20 @@
+// Modal
+#fromScratchModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='fromScratchModalLabel' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header.row.d-flex.justify-content-between.mx-1.mx-sm-1.mb-0.pb-0.border-0
+        #tab01.tabs.active
+          h6.font-weight-bold Mortgage<br>Info
+        #tab02.tabs
+          h6.text-muted Refinance
+        #tab03.tabs
+          h6.text-muted Improvements
+        #tab04.tabs
+          h6.text-muted Yearly<br>Payments
+        #tab05.tabs
+          h6.text-muted Selling<br>Costs
+      .modal-body
+        | ...
+      .modal-footer
+        button.btn.btn-primary(type='submit' data-toggle="modal" data-target="#exampleModal") Previous
+        button.btn.btn-primary(type='submit') Next
