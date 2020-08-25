@@ -1,0 +1,15 @@
+// File Upload Modal
+#fileUploadModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='fileUploadModal' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title File Upload
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        form
+          .custom-file
+            input#customFile.custom-file-input(type='file')
+            label.custom-file-label(for='customFile') Choose file
+      .modal-footer
+        button.btn.btn-primary.col-md-4(type='submit') Submit
