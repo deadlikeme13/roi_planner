@@ -1,5 +1,9 @@
-$(".custom-file-input").on("change", function() {
-  var fileName = $(this).val().split("\\").pop();
-  console.log("Hello World!");
-  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+$(document).ready(function() {
+  $("#inputFile").fileinput({
+    showPreview: false,
+    showUpload: false,
+    elErrorContainer: '#kartik-file-errors',
+    allowedFileExtensions: ["json"]
+    //uploadUrl: '/site/file-upload-single'
+  });
 });

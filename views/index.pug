@@ -4,6 +4,15 @@ block content
   h1= title
   p.centered Welcome to #{title}
   button.col-2.offset-md-5.align-self-center(type="submit" class="btn btn-primary" data-toggle="modal" data-target="#startModal") Start
+  
+  table#table
+    // HEADING FORMATION
+    tr
+      th GFG UserHandle
+      th Practice Problems
+      th Coding Score
+      th GFG Articles
+
   include modals/start
   include modals/from_scratch
   include modals/file_upload

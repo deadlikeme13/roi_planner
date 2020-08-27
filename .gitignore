@@ -42,7 +42,7 @@ node_modules/
 jspm_packages/
 
 # Other directories
-views/includes/tmp/
+tmp/
 
 # TypeScript v1 declaration files
 typings/
