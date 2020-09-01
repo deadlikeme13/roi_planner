@@ -1,32 +1,59 @@
 $(document).ready(function () { 
   
     // FETCHING DATA FROM JSON FILE 
-    $.getJSON("./data/gfgdetails.json",  
+    $.getJSON("./data/roi.json",  
             function (data) { 
-        var student = ''; 
+        var row = ''; 
 
         // ITERATING THROUGH OBJECTS 
         $.each(data, function (key, value) { 
 
             //CONSTRUCTION OF ROWS HAVING 
             // DATA FROM JSON OBJECT 
-            student += '<tr>'; 
-            student += '<td>' +  
-                value.GFGUserName + '</td>'; 
+            row += '<tr>'; 
+            row += '<td>' +  
+                value.year + '</td>'; 
 
-            student += '<td>' +  
-                value.NoOfProblems + '</td>'; 
+            row += '<td>' +  
+                value.month + '</td>'; 
 
-            student += '<td>' +  
-                value.TotalScore + '</td>'; 
+            row += '<td>' +  
+                value.interest + '</td>'; 
 
-            student += '<td>' +  
-                value.Articles + '</td>'; 
+            row += '<td>' +  
+                value.principal + '</td>'; 
 
-            student += '</tr>'; 
+            row += '<td>' +  
+                value.remaining_principal + '</td>'; 
+
+            row += '<td>' +  
+                value.tax + '</td>'; 
+
+            row += '<td>' +  
+                value.insurance + '</td>'; 
+
+            row += '<td>' +  
+                value.writeoff + '</td>'; 
+
+            row += '<td>' +  
+                value.appreciated_price + '</td>'; 
+
+            row += '<td>' +  
+                value.net_worth_gain + '</td>'; 
+
+            row += '<td>' +  
+                value.appreciated_net_worth_gain + '</td>'; 
+
+            row += '<td>' +  
+                value.rent_equivalent + '</td>'; 
+
+            row += '<td>' +  
+                value.appreciated_rent_equivalent + '</td>'; 
+
+            row += '</tr>'; 
         }); 
           
         //INSERTING ROWS INTO TABLE  
-        $('#table').append(student); 
+        $('#table').append(row); 
     }); 
 }); 

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container-fluid.Site-content
+    h1= title
+    main
+      .table-responsive
+        table#table.table.table-striped
+          thead.thead-light
+            // HEADING FORMATION
+            tr
+              th Year
+              th Month
+              th Interest
+              th Principal
+              th Remaining Principal
+              th Tax
+              th Insurance
+              th Writeoff
+              th Appreciated Price
+              th Net Worth Gain
+              th Appreciated Net Worth Gain
+              th Rent Equivalent
+              th Appreciated Rent Equivalent
+          tbody
