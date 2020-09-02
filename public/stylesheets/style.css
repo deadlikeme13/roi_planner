@@ -7172,17 +7172,19 @@ html,
 body {
   height: 100%; }
 
-body {
-  margin-top: 60px; }
-
 .Site {
   display: flex;
   min-height: 100vh;
   flex-direction: column; }
 
 .Site-content {
-  flex: 1;
+  flex: 1; }
+
+main {
   margin-bottom: 250px; }
+
+h1 {
+  margin-top: 100px; }
 
 h1,
 p.centered {
@@ -7190,6 +7192,9 @@ p.centered {
 
 .line-clear {
   border-color: #495057 #495057 #fff !important; }
+
+i {
+  color: #6b6b6b; }
 
 i.fa-angle-double-right,
 i.fa-angle-double-left {
