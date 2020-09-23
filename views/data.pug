@@ -1,0 +1,90 @@
+extends layout
+
+block content
+  .container-fluid.Site-content
+    h1= title
+    main
+      h2 Mortgage
+      .row
+        .col-3 House Price
+        .col-md-auto= data.house_price
+      .row
+        .col-3 Downpayment
+        .col-md-auto= data.downpayment
+      .row
+        .col-3 Interest Rate (%)
+        .col-md-auto= data.interest
+      .row
+        .col-3 Term (Yrs)
+        .col-md-auto= data.term
+      .row
+        .col-3 Start Date
+        .col-md-auto= data.pay_start
+      .row
+        .col-3 Payment Frequency
+        .col-md-auto= data.pay_frequency
+      .row
+        .col-3 Periodicity (Months)
+        .col-md-auto= data.step
+      .row
+        .col-3 Financing Fees
+        .col-md-auto= data.fees
+
+      h2 Expenses
+      .row
+        .col-3 Property Tax
+        .col-md-auto= data.tax
+      .row
+        .col-3 Property Insurance
+        .col-md-auto= data.insurance
+      .row
+        .col-3 Property Appreciation
+        .col-md-auto= data.appreciation
+      .row
+        .col-3 Tax Rate
+        .col-md-auto= data.tax_rate
+
+      h2 Refinance
+      .row
+        .col-3 Label
+        .col-md-auto= data.refinance_name
+      .row
+        .col-3 Starting Balance
+        .col-md-auto= data.start_balance
+      .row
+        .col-3 Interest Rate (%)
+        .col-md-auto= data.refinance_interest
+      .row
+        .col-3 Term (Yrs)
+        .col-md-auto= data.refinance_term
+      .row
+        .col-3 Start Date
+        .col-md-auto= data.refinance_pay_start
+      .row
+        .col-3 Payment Frequency
+        .col-md-auto= data.refinance_pay_frequency
+      .row
+        .col-3 Periodicity (Months)
+        .col-md-auto= data.refinance_step
+      .row
+        .col-3 Financing Fees
+        .col-md-auto= data.refinance_fees
+
+      h2 Improvements
+      .row
+        .col-3 Total Cost
+        .col-md-auto= data.cost
+
+      h2 Finalize
+      .row
+        .col-3 Realtor Commission
+        .col-md-auto= data.commission
+      .row
+        .col-3 Legal Disbursements &amp; Fees
+        .col-md-auto= data.legal
+      .row
+        .col-3 Discharge Fees
+        .col-md-auto= data.discharge_fees
+      .row
+        .col-3 Transfer Tax
+        .col-md-auto= data.transfer_tax

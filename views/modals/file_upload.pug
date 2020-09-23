@@ -1,16 +1,17 @@
 // File Upload Modal
 #fileUploadModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='fileUploadModalLabel' aria-hidden='true')
   .modal-dialog.modal-dialog-centered(role='document')
-    .modal-content
-      .modal-header
-        h5#fileUploadModalLabel.modal-title File Upload
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true') &times;
-      .modal-body
-        .file-loading
-          input#inputFile(name='inputFile' type='file')
-          label.custom-file-label(for='inputFile') Choose file
-        #kartik-file-errors
-      .modal-footer
-        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
-        button.btn.btn-primary(type='button' title='Your custom upload logic') Save
+    form#uploadForm(enctype='multipart/form-data' action='/schedule' method='post')
+      .modal-content
+        .modal-header
+          h5#fileUploadModalLabel.modal-title File Upload
+          button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+          .file-loading
+            input#inputFile(type='file' name='userData' )
+            label.custom-file-label(for='userData') Choose file
+          #kartik-file-errors
+        .modal-footer
+          button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+          input.btn.btn-info(type='submit' value='Upload data' name='submit')

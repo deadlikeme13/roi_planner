@@ -2,16 +2,27 @@
   padding-bottom: 0px !important;
   border-bottom: none !important; }
 
-.nav-tabs, .nav-link {
+.nav-tabs .nav-link {
   color: #495057 !important; }
 
 .nav-tabs .nav-link.active {
   color: #fff !important;
-  background-color: #007bff !important;
-  border-color: #007bff #007bff !important; }
+  background-color: #17a2b8 !important;
+  border-color: #17a2b8 #17a2b8 !important; }
+
+.progress {
+  border-radius: 0 !important; }
+
+.form-group {
+  margin-bottom: 0 !important; }
 
 .line {
-  background-color: #007bff !important; }
+  background-color: #17a2b8 !important; }
+
+.btn-primary {
+  color: #fff;
+  background-color: #17a2b8 !important;
+  border-color: #17a2b8 !important; }
 
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
@@ -7184,7 +7195,8 @@ main {
   margin-bottom: 250px; }
 
 h1 {
-  margin-top: 100px; }
+  margin-top: 100px;
+  margin-bottom: 2rem !important; }
 
 h1,
 p.centered {
@@ -7193,7 +7205,15 @@ p.centered {
 .line-clear {
   border-color: #495057 #495057 #fff !important; }
 
-i {
+.kv-hidden {
+  display: none !important; }
+
+.info {
+  color: #fff !important;
+  background-color: #17a2b8 !important;
+  border-color: #17a2b8 #17a2b8 !important; }
+
+i.footer {
   color: #6b6b6b; }
 
 i.fa-angle-double-right,
@@ -7255,6 +7275,30 @@ a:hover {
 .modal-body-footer {
   margin-left: 15px !important;
   margin-right: 15px !important; }
+
+.clearfix:after,
+.clearfix:before {
+  display: table;
+  content: " "; }
+
+.clearfix:after {
+  clear: both; }
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s; }
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px; }
+
+#copyright {
+  background-color: rgba(0, 0, 0, 0.2); }
 
 /*.footer
   position: absolute;

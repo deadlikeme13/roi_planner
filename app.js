@@ -4,9 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
+const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var scheduleRouter = require('./routes/schedule');
+var aboutRouter = require('./routes/about');
 
 var app = express();
 
@@ -24,10 +26,11 @@ app.use(sassMiddleware({
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')), bodyParser.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
 app.use('/schedule', scheduleRouter);
+app.use('/about', aboutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

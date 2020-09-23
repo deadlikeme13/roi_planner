@@ -1,201 +1,179 @@
+//https://bbbootstrap.com/snippets/modal-multiple-tabs-89860645
 .container
   // Input Info from Scratch Modal
   #fromScratchModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='fromScratchModal' aria-hidden='true')
-    .modal-lg.modal-dialog.modal-dialog-scrollable(role='document')
+    .modal-lg.modal-dialog(role='document')
       .modal-content
-        .modal-header.nav.nav-tabs.row.d-flex.justify-content-between.mx-1.mx-sm-3.mb-0.pb-0.border-0
-          ul.nav.nav-tabs
-            li.nav-item
-              a#home-tab.nav-link.active(data-toggle='tab' href='#home' role='tab' aria-controls='home' aria-selected='true') Mortgage Info
-            li.nav-item
-              a#menu1-tab.nav-link(data-toggle='tab' href='#menu1' role="tab" aria-controls="menu1" aria-selected="false") Annual Expenses
-            li.nav-item
-              a#menu2-tab.nav-link(data-toggle='tab' href='#menu2' role="tab" aria-controls="menu2" aria-selected="false") Refinance
-            li.nav-item
-              a#menu3-tab.nav-link(data-toggle='tab' href='#menu3' role="tab" aria-controls="menu3" aria-selected="false") Improvements
-            li.nav-item
-              a#menu4-tab.nav-link(data-toggle='tab' href='#menu4' role="tab" aria-controls="menu4" aria-selected="false") Selling Costs
-        .line
-        .modal-body.tab-content.p-0
-          fieldset#home.tab-pane.fade.show.active(role="tabpanel" aria-labelledby='home-tab')
-            .bg-light
-              .progress
-                .progress-bar.progress-bar-striped.progress-bar-animated(role='progressbar' style='width: 0%' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100')
-              form.pt-3.pb-3
-                .form-group.row.pb-2.px-3
-                  .col-6
-                    label(for='house-price') House Price
-                    input.form-control(min='1', id='house-price', type='number')
-                  .col-6
+        form(method='post' action='/')
+          .modal-header.nav.nav-tabs.row.d-flex.justify-content-between.mx-1.mx-sm-3.mb-0.pb-0.border-0
+            ul.nav.nav-tabs
+              li.nav-item
+                a#mortgage-tab.nav-link.active(data-toggle='tab' href='#mortgage' role='tab' aria-controls='mortgage' aria-selected='true') 1 Mortgage
+              li.nav-item
+                a#expenses-tab.nav-link(data-toggle='tab' href='#expenses' role="tab" aria-controls="expenses" aria-selected="false") 2 Expenses
+              li.nav-item
+                a#refinance-tab.nav-link(data-toggle='tab' href='#refinance' role="tab" aria-controls="refinance" aria-selected="false") 3 Refinance
+              li.nav-item
+                a#improvements-tab.nav-link(data-toggle='tab' href='#improvements' role="tab" aria-controls="improvements" aria-selected="false") 4 Improvements
+              li.nav-item
+                a#finalize-tab.nav-link(data-toggle='tab' href='#finalize' role="tab" aria-controls="finalize" aria-selected="false") 5 Finalize
+          .line
+          .modal-body.tab-content.p-0
+            fieldset#mortgage.tab-pane.fade.show.active(role="tabpanel" aria-labelledby='mortgage-tab')
+              .bg-light
+                .progress
+                  .progress-bar.bg-info.progress-bar-striped(role='progressbar' style='width: 20%' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100')
+                .form-group.row.p-3.md-form.form-sm
+                  .col-6.floating-label
+                    label(for='house_price') House Price
+                    input.form-control.form-control-sm(min='1', id='house_price', name='house_price', type='number' required)
+                  .col-6.floating-label
                     label(for='downpayment') Downpayment
-                    input.form-control(min='0', id='downpayment', type='number')
-                .form-group.row.pb-2.px-3
-                  .col-6
+                    input.form-control.form-control-sm(min='0', id='downpayment', name='downpayment', type='number' required)
+                .form-group.row.pb-3.px-3.md-form.form-sm
+                  .col-6.floating-label
                     label(for='interest') Interest Rate (%)
-                    input.form-control(min='0', max='6', step='0.01', id='interest', type='number')
-                  .col-6
+                    input.form-control.form-control-sm(min='0', max='6', step='0.01', id='interest', name='interest', type='number' required)
+                  .col-6.floating-label
                     label(for='term') Term (Yrs)
-                    input.form-control(min='1', max='99', id='term', type='number')
-                .form-group.row.pb-2.px-3
-                  .col-6
-                    label(for='pay-start') Start Date
-                    input.form-control(id='pay-start', type='date')
-                  .col-6
-                    label(for='pay-frequency') Payment Frequency
-                    select.custom-select
+                    input.form-control.form-control-sm(min='1', max='99', id='term', name='term', type='number' required)
+                .form-group.row.pb-3.px-3.md-form.form-sm
+                  .col-6.floating-label
+                    label(for='pay_start') Start Date
+                    input.form-control.form-control-sm(id='pay_start', name='pay_start', type='date' required)
+                  .col-6.floating-label
+                    label(for='pay_frequency') Payment Frequency
+                    select.custom-select(id='pay_frequency', name='pay_frequency' required)
                       option(selected='', disabled) Choose One
                       option(value='weekly') Weekly
                       option(value='bi-weekly') Bi-Weekly
                       option(value='monthly') Monthly
-                .form-group.row.pb-2.px-3
-                  .col-6
+                .form-group.row.pb-3.px-3.md-form.form-sm
+                  .col-6.floating-label
                     label(for='step') Periodicity (Months)
-                    input.form-control(min='1', max='12', id='step', type='number')
-                  .col-6
+                    input.form-control.form-control-sm(min='1', max='12', id='step', name='step', type='number' required)
+                  .col-6.floating-label
                     label(for='fees') Financing Fees
-                    input.form-control(min='1', max='12', id='fees', type='number')
-                .form-group.pb-5.px-3.row.justify-content-center
+                    input.form-control.form-control-sm(min='1', id='fees', name='fees', type='number' required)
+                //.form-group.pb-5.px-3.row.justify-content-center.md-form.form-sm
                   button.btn.btn-secondary(type='button' disabled) Additional Payments +
-                .form-group.row.modal-body-footer
-                  //button.btn.btn-lg.btn-success(type='submit')
-                    i.glyphicon.glyphicon-ok-sign
-                      |  Save
-                  //button.btn.btn-lg(type='reset')
-                    i.glyphicon.glyphicon-repeat
-                    |  Reset
-                  |
-                  //button.btn.btn-primary.previous.btn-previous.col-md-2.px-3(type='button' disabled) Previous
-                  button.btn.btn-primary.next.btn-next.col-md-2.ml-auto.px-3(type='button') Continue
-                  //i.fa.fa-angle-double-left.px-3
-                  //a(href='#tab021' data-toggle='tab' data-target='#tab02')  
-                  //i.fa.fa-angle-double-right.ml-auto.px-3
-          fieldset#menu1.tab-pane.fade(role="tabpanel" aria-labelledby='menu1-tab')
-            .bg-light
-              .progress
-                .progress-bar.progress-bar-striped.progress-bar-animated(role='progressbar' style='width: 20%' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100')
-              form.pt-3.pb-3
-                .form-group.row.pb-2.px-3
+            fieldset#expenses.tab-pane.fade(role="tabpanel" aria-labelledby='expenses-tab')
+              .bg-light
+                .progress
+                  .progress-bar.bg-info.progress-bar-striped(role='progressbar' style='width: 40%' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
+                .form-group.row.p-3
                   .col-6
                     label(for='tax') Property Tax
-                    input.form-control(min='1', id='tax', type='number')
+                    input.form-control(min='1', id='tax', name='tax', type='number' required)
                   .col-6
                     label(for='insurance') Property Insurance
-                    input.form-control(min='1', id='insurance', type='number')
-                .form-group.row.pb-2.px-3
+                    input.form-control(min='1', id='insurance', name= 'insurance', type='number' required)
+                .form-group.row.pb-3.px-3
                   .col-6
                     label(for='appreciation') Property Appreciation
-                    input.form-control(min='0', max='6', step='0.01', id='appreciation', type='number')
+                    input.form-control(min='0', max='6', step='0.01', id='appreciation', name='appreciation', type='number' required)
                   .col-6
-                    label(for='tax-rate') Tax Rate
-                    input.form-control(min='0', max='6', step='0.01', id='tax-rate', type='number')
-            .form-group.row.modal-body-footer
-              button.btn.btn-primary.btn-previous.col-md-2.px-3(type='button') Previous
-              button.btn.btn-primary.btn-next.col-md-2.ml-auto.px-3(type='button') Next
-          fieldset#menu2.tab-pane.fade(role="tabpanel" aria-labelledby='menu2-tab')
-            .bg-light
-              .progress
-                .progress-bar.progress-bar-striped(role='progressbar' style='width: 40%' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
-              form.pt-3.pb-3
-                .form-group.row.pb-2.px-3
+                    label(for='tax_rate') Tax Rate
+                    input.form-control(min='0', max='6', step='0.01', id='tax_rate', name='tax_rate', type='number')
+            fieldset#refinance.tab-pane.fade(role="tabpanel" aria-labelledby='refinance-tab')
+              .bg-light
+                .progress
+                  .progress-bar.bg-info.progress-bar-striped(role='progressbar' style='width: 60%' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                .form-group.row.p-3
                   .col-6
-                    label(for='refinance-name') Label
-                    input.form-control(min='1', max='20', id='refinance-name', type='text')
+                    label(for='refinance_name') Label
+                    input.form-control(min='1', max='20', id='refinance_name', name='refinance_name', type='text')
                   .col-6
-                    label(for='start-balance') Starting Balance
-                    input.form-control(min='1', id='start-balance', type='number')
-                .form-group.row.pb-2.px-3
+                    label(for='start_balance') Starting Balance
+                    input.form-control(min='1', id='start_balance', name='start_balance', type='number')
+                .form-group.row.pb-3.px-3
                   .col-6
-                    label(for='refinance-interest') Interest Rate (%)
-                    input.form-control(min='0', max='6', step='0.01', id='refinance-interest', type='number')
+                    label(for='refinance_interest') Interest Rate (%)
+                    input.form-control(min='0', max='6', step='0.01', id='refinance_interest', name='refinance_interest', type='number')
                   .col-6
-                    label(for='refinance-term') Term (Yrs)
-                    input.form-control(min='1', max='99', id='refinance-term', type='number')
-                .form-group.row.pb-2.px-3
+                    label(for='refinance_term') Term (Yrs)
+                    input.form-control(min='1', max='99', id='refinance_term', name='refinance_term', type='number')
+                .form-group.row.pb-3.px-3
                   .col-6
-                    label(for='refinance-pay-start') Start Date
-                    input.form-control(id='refinance-pay-start', type='date')
+                    label(for='refinance_pay_start') Start Date
+                    input.form-control(id='refinance_pay_start', name='refinance_pay_start', type='date')
                   .col-6
-                    label(for='refinance-pay-frequency') Payment Frequency
-                    select.custom-select
+                    label(for='refinance_pay_frequency') Payment Frequency
+                    select.custom-select(id='refinance_pay_frequency', name='refinance_pay_frequency')
                       option(selected='', disabled) Choose One
                       option(value='weekly') Weekly
                       option(value='bi-weekly') Bi-Weekly
                       option(value='monthly') Monthly
-                .form-group.row.pb-2.px-3
+                .form-group.row.pb-3.px-3
                   .col-6
-                    label(for='refinance-step') Periodicity (Months)
-                    input.form-control(min='1', max='12', id='refinance-step', type='number')
+                    label(for='refinance_step') Periodicity (Months)
+                    input.form-control(min='1', max='12', id='refinance_step', name='refinance_step', type='number')
                   .col-6
-                    label(for='refinance-fees') Financing Fees
-                    input.form-control(min='1', max='12', id='refinance-fees', type='number')
-                .form-group.pb-5.px-3.row.justify-content-center
+                    label(for='refinance_fees') Financing Fees
+                    input.form-control(min='1', id='refinance_fees', name='refinance_fees', type='number')
+                //.form-group.pb-5.px-3.row.justify-content-center
                   button.btn.btn-secondary(type='button' disabled) Additional Payments +
-                .form-group.pb-5.row.justify-content-center
-                  button.btn.btn-primary.px-3(type='button') Save
-                .form-group.row.pb-5.px-3.justify-content-center
+                //.form-group.pb-5.row.justify-content-center
+                  button.btn.btn-info.px-3(type='button') Save
+                //.form-group.row.pb-5.px-3.justify-content-center
                   button.btn.btn-secondary(type='button' disabled) Add Refinance +
-                .form-group.row.modal-body-footer
-                  button.btn.btn-primary.btn-previous.col-md-2.px-3(type='button') Previous
-                  button.btn.btn-primary.btn-next.col-md-2.ml-auto.px-3(type='button') Next
-          fieldset#menu3.tab-pane.fade(role="tabpanel" aria-labelledby='menu3-tab')
-            .bg-light
-              .progress
-                .progress-bar.progress-bar-striped(role='progressbar' style='width: 60%' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
-              form.pt-3.pb-3
-                .form-group.row.pb-2.px-3
+            fieldset#improvements.tab-pane.fade(role="tabpanel" aria-labelledby='improvements-tab')
+              .bg-light
+                .progress
+                  .progress-bar.bg-info.progress-bar-striped(role='progressbar' style='width: 80%' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+                .form-group.row.p-3
                   .col-6
-                    label(for='improvement-name') Label
-                    input.form-control(min='1', max='20', id='improvement-name', type='text')
+                    label(for='improvement_name') Label
+                    input.form-control(min='1', max='20', id='improvement_name', name='improvement_name' type='text')
                   .col-6
                     label(for='cost') Cost
-                    input.form-control(min='1', id='cost', type='number')
-                .form-group.pb-5.px-3.row.justify-content-center
+                    input.form-control(min='1', id='cost', name='cost', type='number')
+                //.form-group.pb-3.px-3.row.justify-content-center
                   button.btn.btn-secondary(type='button' disabled) Add Improvement +
-            .px-3
-              .border.border-1.box
-                table.table.table-hover
-                  thead.thead-light
-                    tr
-                      th(scope='col') Label
-                      th(scope='col') Cost
-                  tbody
-                    tr
-                      td Deck
-                      td 10000
-                    tr
-                      td Roof
-                      td 18000
-                  tfoot
-                    tr
-                      td 
-                        strong Total:
-                      td $28000
-            .form-group.row.modal-body-footer
-              button.btn.btn-primary.btn-previous.col-md-2.px-3(type='button') Previous
-              button.btn.btn-primary.btn-next.col-md-2.ml-auto.px-3(type='button') Next
-          fieldset#menu4.tab-pane.fade(role="tabpanel" aria-labelledby='menu4-tab')
-            .bg-light
-              .progress
-                .progress-bar.progress-bar-striped(role='progressbar' style='width: 80%' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
-              form.pt-3.pb-3
-                .form-group.row.pb-2.px-3
+            //.px-3
+                .border.border-1.box
+                  table.table.table-hover
+                    thead.thead-light
+                      tr
+                        th(scope='col') Label
+                        th(scope='col') Cost
+                    tbody
+                      tr
+                        td Deck
+                        td 10000
+                      tr
+                        td Roof
+                        td 18000
+                    tfoot
+                      tr
+                        td 
+                          strong Total:
+                        td $28000
+            fieldset#finalize.tab-pane.fade(role="tabpanel" aria-labelledby='finalize-tab')
+              .bg-light
+                .progress
+                  .progress-bar.bg-info.progress-bar-striped(role='progressbar' style='width: 100%' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100')
+                .form-group.row.p-3
                   .col-6
                     label(for='commission') Realtor Commission
-                    input.form-control(min='0', max='6', step='0.01', id='commission', type='number')
+                    input.form-control(min='0', max='6', step='0.01', id='commission', name='commission', type='number' required)
                   .col-6
                     label(for='legal') Legal Disbursements &amp; Fees
-                    input.form-control(min='0', id='legal', type='number')
-                .form-group.row.pb-2.px-3
+                    input.form-control(min='0', id='legal', name='legal', type='number')
+                .form-group.row.pb-3.px-3
                   .col-6
-                    label(for='discharge-fees') Discharge Fees
-                    input.form-control(min='0', id='discharge-fees', type='number')
+                    label(for='discharge_fees') Discharge Fees
+                    input.form-control(min='0', id='discharge_fees', name='discharge_fees', type='number')
                   .col-6
-                    label(for='transfer-tax') Transfer Tax
-                    input.form-control(min='0', id='transfer-tax', type='number')
-            .form-group.row.modal-body-footer
-              button.btn.btn-primary.btn-previous.col-md-2.px-3(type='button') Previous
-              button.btn.btn-primary.col-md-3.ml-auto.px-3(type='button' disabled) Create Schedule
-        .line
-        .modal-footer.d-flex.flex-column.justify-content-center.border-0
-          p.text-muted Can&apos;t find what you&apos;re looking for?
-          button.btn.btn-secondary(type='button') Contact Support Team
+                    label(for='transfer_tax') Transfer Tax
+                    input.form-control(min='0', id='transfer_tax', name='transfer_tax', type='number')
+                .form-group.pb-3.px-3.row.justify-content-center
+                  input.btn.btn-finish.btn-fill.btn-success.btn-wd(type='submit' name='finish' value='Create Schedule')
+          .line
+          .modal-footer.info.d-flex.flex-column.justify-content-center.border-0
+            //.float-right
+              input.btn.btn-next.btn-fill.btn-success.btn-wd(type='button' name='next' value='Next')
+              input.btn.btn-finish.btn-fill.btn-success.btn-wd(type='submit' name='finish' value='Create Schedule')
+            //.float-left
+              input.btn.btn-previous.btn-fill.btn-default.btn-wd(type='button' name='previous' value='Previous')
+            //.clearfix
