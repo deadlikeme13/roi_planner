@@ -24,6 +24,9 @@
     "multer": "^1.4.2",
     "node-sass-middleware": "0.11.0",
     "pug": "2.0.0-beta11",
+    "superagent": "^6.1.0",
+    "superagent-jsonapify": "^1.4.5",
     "twitter-bootstrap-wizard": "^1.2.0"
-  }
+  },
+  "devDependencies": {}
 }

@@ -1,16 +1,27 @@
 var express = require('express');
+var getScheduleController = require('../controllers/get_schedule');
 var fileUploadController = require('../controllers/file_upload');
 var router = express.Router();
 
 router
   .get('/', function(req, res, next) {
     res.render('index', { title: 'Return on Investment Planner' });
+    //console.log('My Date', string)
   })
+  .post('/', function(req, res) {
+    var schedule = getScheduleController.getSchedule(req, res);
+    console.log('Schedule Received', schedule)   
+    res.render('schedule_view', { title: 'Collected Schedule', schedule: schedule})
+  })
+  /*
+  //Original post of collected data
   .post('/', function(req, res){
-    res.render('data', { title: 'Collected Data', data: req.body})
-    //console.log('My house price', req.body.house_price)
-    console.log('My Data', req.body);
+    var date = "2010-10-25";
+    var string = date.split("-");
+    var my_date = req.body.pay_start.split("-");
+    res.render('data', { title: 'Collected Data', data: req.body, date: my_date})
   })
+  */
   .post('/schedule', fileUploadController.uploadFile)
     
 /* It starts from the root. That is why you need '/schedule' path
