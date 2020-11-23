@@ -3,6 +3,8 @@ extends layout
 block content
   .container-fluid.Site-content
     h1= title
+    p Need to make call to:
+    p="https://restplanner-200203.appspot.com/schedule/" + data.pay_frequency + "?year=" + date[0] + "&month=" + date[1] + "&day=" + date[2] + "&years=" + data.term + "&step=1"
     main
       h2 Mortgage
       .row
@@ -23,9 +25,6 @@ block content
       .row
         .col-3 Payment Frequency
         .col-md-auto= data.pay_frequency
-      .row
-        .col-3 Periodicity (Months)
-        .col-md-auto= data.step
       .row
         .col-3 Financing Fees
         .col-md-auto= data.fees
@@ -63,9 +62,6 @@ block content
       .row
         .col-3 Payment Frequency
         .col-md-auto= data.refinance_pay_frequency
-      .row
-        .col-3 Periodicity (Months)
-        .col-md-auto= data.refinance_step
       .row
         .col-3 Financing Fees
         .col-md-auto= data.refinance_fees

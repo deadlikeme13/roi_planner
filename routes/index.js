@@ -8,13 +8,16 @@ router
     res.render('index', { title: 'Return on Investment Planner' });
     //console.log('My Date', string)
   })
+  //Posting Received Schedule
   .post('/', function(req, res) {
-    var schedule = getScheduleController.getSchedule(req, res);
-    console.log('Schedule Received', schedule)   
-    res.render('schedule_view', { title: 'Collected Schedule', schedule: schedule})
+    var schedule_promise = getScheduleController.getSchedule(req, res);
+    schedule_promise.then (function(schedule) {
+      //console.log('Schedule Received', schedule)   
+      res.render('schedule_view', { title: 'Collected Schedule', schedule: JSON.stringify(schedule)})
+    })
   })
   /*
-  //Original post of collected data
+  //Posting Collected Data
   .post('/', function(req, res){
     var date = "2010-10-25";
     var string = date.split("-");
