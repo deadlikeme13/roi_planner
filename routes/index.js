@@ -1,5 +1,6 @@
 var express = require('express');
 var getScheduleController = require('../controllers/get_schedule');
+var getPaymentScheduleController = require('../controllers/get_payment_schedule');
 var fileUploadController = require('../controllers/file_upload');
 var router = express.Router();
 
@@ -8,21 +9,28 @@ router
     res.render('index', { title: 'Return on Investment Planner' });
     //console.log('My Date', string)
   })
+  
+  //Posting Received Payment Schedule
+  .post('/', function(req, res) {
+    var schedule_promise = getScheduleController.getSchedule(req, res);
+    schedule_promise.then (function(schedule) {
+      //console.log('Mortgage Setup Schedule Received', schedule)   
+      //res.render('schedule_view', { title: 'Collected Mortgage Setup Schedule', schedule: JSON.stringify(schedule) })
+      var payment_schedule_promise = getPaymentScheduleController.getPaymentSchedule(schedule);
+      payment_schedule_promise.then (function(payment_schedule) {
+        console.log('Payment Schedule Received', payment_schedule)   
+        res.render('payment_schedule_view', { title: 'Collected Payment Schedule', payment_schedule: JSON.stringify(payment_schedule) })
+      })
+    })
+  })
+  
+  /*
   //Posting Received Mortgage Setup Schedule
   .post('/', function(req, res) {
     var schedule_promise = getScheduleController.getSchedule(req, res);
     schedule_promise.then (function(schedule) {
       //console.log('Schedule Received', schedule)   
       res.render('schedule_view', { title: 'Collected Mortgage Setup Schedule', schedule: JSON.stringify(schedule) })
-    })
-  })
-  /*
-  //Posting Received Mortgage Setup Schedule
-  .post('/', function(req, res) {
-    var payment_schedule_promise = getScheduleController.getPaymentSchedule(req, res);
-    payment_schedule_promise.then (function(schedule) {
-      //console.log('Schedule Received', schedule)   
-      res.render('payment_schedule_view', { title: 'Collected Mortgage Setup Schedule', schedule: JSON.stringify(schedule) })
     })
   })
   */
