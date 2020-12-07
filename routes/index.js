@@ -8,14 +8,24 @@ router
     res.render('index', { title: 'Return on Investment Planner' });
     //console.log('My Date', string)
   })
-  //Posting Received Schedule
+  //Posting Received Mortgage Setup Schedule
   .post('/', function(req, res) {
     var schedule_promise = getScheduleController.getSchedule(req, res);
     schedule_promise.then (function(schedule) {
       //console.log('Schedule Received', schedule)   
-      res.render('schedule_view', { title: 'Collected Schedule', schedule: JSON.stringify(schedule)})
+      res.render('schedule_view', { title: 'Collected Mortgage Setup Schedule', schedule: JSON.stringify(schedule) })
     })
   })
+  /*
+  //Posting Received Mortgage Setup Schedule
+  .post('/', function(req, res) {
+    var payment_schedule_promise = getScheduleController.getPaymentSchedule(req, res);
+    payment_schedule_promise.then (function(schedule) {
+      //console.log('Schedule Received', schedule)   
+      res.render('payment_schedule_view', { title: 'Collected Mortgage Setup Schedule', schedule: JSON.stringify(schedule) })
+    })
+  })
+  */
   /*
   //Posting Collected Data
   .post('/', function(req, res){
