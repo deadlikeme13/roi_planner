@@ -7216,7 +7216,8 @@ p.centered {
   background-color: #17a2b8 !important;
   border-color: #17a2b8 #17a2b8 !important; }
 
-i.footer {
+i.footer,
+.remove-input i {
   color: #6b6b6b; }
 
 i.fa-angle-double-right,
