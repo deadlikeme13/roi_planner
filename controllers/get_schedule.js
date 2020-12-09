@@ -21,8 +21,8 @@ exports.getSchedule = function (req, res) {
   var schedule_date = dateSplit(req.body.pay_start);
   var params = { year: schedule_date[0], month: schedule_date[1], day: schedule_date[2], years: req.body.term, step: periodicity [req.body.pay_frequency][1] }
   //console.log("My params: ", params);
-  var mortgage_setup = { house_price: req.body.house_price, downpayment: req.body.downpayment, interest: req.body.interest }
-  //console.log("Mortgage data: ", mortgage_setup)
+  var mortgage_setup = { house_price: parseInt(req.body.house_price), downpayment: parseInt(req.body.downpayment), interest: parseFloat(req.body.interest)/100 }
+  console.log("Mortgage data: ", mortgage_setup)
   
   var mortgage_setup_promise = (async () => {
     try {
@@ -36,7 +36,7 @@ exports.getSchedule = function (req, res) {
         })
       //console.log("Result 1: ", result);
       mortgage_setup.schedule = result.schedule
-      //console.log("Result 2: ", mortgage_setup)
+      console.log("Result 2: ", mortgage_setup)
       return mortgage_setup;
     } catch (err) {
       console.error(err);
